@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faï — Laboratoire de clarté</title>
+  <meta name="description" content="Faï combine réflexion sur la technologie et pratiques de yoga pour retrouver clarté et concentration.">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* ── STYLES SPÉCIFIQUES À CETTE PAGE ─────────────────────────
+       Tout ce qui est ici ne s'applique qu'à index.html.
+       Les styles communs (nav, footer, boutons...) sont dans style.css
+       ──────────────────────────────────────────────────────────── */
+
+    /* Page d'entrée : on veut qu'elle prenne toute la hauteur de l'écran */
+    .entry-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Zone centrale — tout ce qui est entre la nav et le footer */
+    .entry-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+
+    /* Label "Laboratoire de clarté" */
+    .entry-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 2.5rem;
+    }
+
+    /* Titre principal */
+    .entry-title {
+      font-family: var(--font-titre);
+      font-weight: 700;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--titre);
+      margin-bottom: 1.5rem;
+    }
+
+    .entry-title em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--rouge);
+      font-size: 1.12em;
+      letter-spacing: 0;
+    }
+
+    /* Sous-titre */
+    .entry-sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--gris);
+      max-width: 480px;
+      margin: 0 auto 3.5rem;
+      font-weight: 300;
+    }
+
+    /* Question "Vous êtes..." */
+    .entry-question {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Les deux boutons côte à côte */
+    .entry-choices {
+      display: flex;
+      gap: 1.2rem;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Bouton de choix — plus grand que les boutons nav */
+    .btn-choice {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      text-decoration: none;
+      padding: 1.8rem 2.5rem;
+      border: 1px solid rgba(26,26,26,0.12);
+      background: var(--blanc);
+      transition: background 0.3s, border-color 0.3s;
+      min-width: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-choice:hover {
+      background: var(--sable);
+      border-color: var(--rouge);
+    }
+
+    .btn-choice:hover .choice-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .choice-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gris);
+      font-weight: 400;
+    }
+
+    .choice-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--titre);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .choice-desc {
+      font-size: 0.75rem;
+      color: var(--gris);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 180px;
+    }
+
+    .choice-arrow {
+      font-size: 1rem;
+      color: var(--rouge);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    /* Séparateur "ou" entre les deux boutons */
+    .entry-or {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(138,138,138,0.5);
+      display: flex;
+      align-items: center;
+      padding: 0 0.5rem;
+    }
+
+    /* Ticker — bande animée rouge */
+    .ticker {
+      background: var(--rouge);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blanc);
+      font-weight: 400;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .entry-choices {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .entry-or { display: none; }
+
+      .btn-choice { min-width: unset; }
+
+      /* Sur mobile : menu burger à la place des liens nav */
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+    }
+
+    /* Burger menu (masqué sur desktop) */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--titre);
+    }
+
+    /* Menu mobile déroulant */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0; right: 0;
+      background: var(--blanc);
+      border-bottom: 1px solid rgba(26,26,26,0.08);
+      z-index: 99;
+      padding: 1.5rem 2rem;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      text-decoration: none;
+      color: var(--titre);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(26,26,26,0.06);
+    }
+
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--rouge); }
+  </style>
+</head>
+
+<body class="entry-page">
+
+  <!-- ── NAV ───────────────────────────────────────────────────────
+       La nav de cette page est neutre — elle n'appartient ni à
+       l'univers Entreprises ni à l'univers Particuliers.
+       Sur mobile : burger menu qui déroule les liens.
+       ──────────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="logo">
+      <span class="f">F</span><span class="ai">aï</span>
+    </a>
+
+    <!-- Liens desktop -->
+    <ul class="nav-links">
+      <li><a href="entreprises/index.html">Entreprises</a></li>
+      <li><a href="particuliers/index.html">Particuliers</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+
+    <!-- Burger mobile -->
+    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Menu mobile déroulant -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="entreprises/index.html">Entreprises</a>
+    <a href="particuliers/index.html">Particuliers</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ── TICKER ────────────────────────────────────────────────────
+       Bande animée juste sous la nav — commune aux deux univers.
+       ──────────────────────────────────────────────────────────── -->
+  <div class="ticker">
+    <span class="ticker-inner">
+      Ateliers · Retraites · Slow tech · Yoga · Tech & Mental · Bordeaux · Digital Detox · Respiration · Clarté · Formation · Consulting · Ateliers · Retraites · Slow tech · Yoga · Tech & Mental · Bordeaux · Digital Detox · Respiration · Clarté · Formation · Consulting ·&nbsp;
+    </span>
+  </div>
+
+  <!-- ── CONTENU PRINCIPAL ─────────────────────────────────────────
+       Zone centrale : présentation + double choix.
+       ──────────────────────────────────────────────────────────── -->
+  <main class="entry-main">
+
+    <!-- Label -->
+    <p class="entry-label">Laboratoire de clarté</p>
+
+    <!-- Titre -->
+    <h1 class="entry-title">
+      Technologie<br>et <em>conscience.</em>
+    </h1>
+
+    <!-- Sous-titre -->
+    <p class="entry-sub">
+      Faï combine réflexion sur nos usages numériques et pratiques de yoga — pour retrouver clarté, concentration et sens dans un monde saturé d'informations.
+    </p>
+
+    <!-- Question -->
+    <p class="entry-question">Vous êtes…</p>
+
+    <!-- Les deux choix -->
+    <div class="entry-choices">
+
+      <!-- Bouton Entreprises -->
+      <a href="entreprises/index.html" class="btn-choice">
+        <span class="choice-label">Pour les organisations</span>
+        <span class="choice-title">Une<br>entreprise</span>
+        <span class="choice-desc">Former, automatiser, raisonner — accompagnement sur mesure.</span>
+        <span class="choice-arrow">→</span>
+      </a>
+
+      <span class="entry-or">ou</span>
+
+      <!-- Bouton Particuliers -->
+      <a href="particuliers/index.html" class="btn-choice">
+        <span class="choice-label">Pour vous</span>
+        <span class="choice-title">Un<br>particulier</span>
+        <span class="choice-desc">Ateliers, retraites, yoga — reprendre le contrôle.</span>
+        <span class="choice-arrow">→</span>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────
+       Footer minimal — commun aux deux univers.
+       ──────────────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">
+      <span class="f">F</span><span class="ai">aï</span>
+    </div>
+    <p>Bordeaux — Laboratoire de clarté</p>
+    <p>© 2025 Faï</p>
+  </footer>
+
+  <!-- ── JAVASCRIPT ─────────────────────────────────────────────────
+       Uniquement le burger menu mobile — rien de plus.
+       ──────────────────────────────────────────────────────────── -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-mobile');
+      menu.classList.toggle('open');
+    }
+
+    // Fermer le menu si on clique ailleurs
+    document.addEventListener('click', function(e) {
+      const burger = document.getElementById('burger');
+      const menu = document.getElementById('nav-mobile');
+      if (!burger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
