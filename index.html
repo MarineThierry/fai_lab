@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
 
   <!-- CSS global -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
     /* ── STYLES SPÉCIFIQUES À CETTE PAGE ─────────────────────────
@@ -77,11 +77,12 @@
 
     /* Question "Vous êtes..." */
     .entry-question {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gris);
-      margin-bottom: 1.5rem;
+      color: var(--titre);
+      font-weight: 500;
+      margin-bottom: 1.8rem;
     }
 
     /* Les deux boutons côte à côte */
@@ -97,14 +98,15 @@
     .btn-choice {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 0.5rem;
       text-decoration: none;
-      padding: 1.8rem 2.5rem;
+      padding: 2rem 2.5rem;
       border: 1px solid rgba(26,26,26,0.12);
       background: var(--blanc);
       transition: background 0.3s, border-color 0.3s;
-      min-width: 200px;
+      min-width: 220px;
       position: relative;
       overflow: hidden;
     }
@@ -144,11 +146,16 @@
     }
 
     .choice-arrow {
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: var(--rouge);
-      opacity: 0;
+      opacity: 0.3;
       transition: opacity 0.2s, transform 0.2s;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .btn-choice:hover .choice-arrow {
+      opacity: 1;
+      transform: translateX(4px);
     }
 
     /* Séparateur "ou" entre les deux boutons */
