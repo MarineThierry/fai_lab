@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faï — Entreprises</title>
   <meta name="description" content="Faï accompagne les entreprises dans leur rapport à la technologie : automatiser avec intention, raisonner avec clarté, former avec méthode.">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
-
-  <!-- CSS global -->
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
@@ -25,9 +21,9 @@
       <li class="nav-dropdown">
         <a href="index.html" class="active">Entreprises</a>
         <ul class="dropdown">
-          <li><a href="formation.html">Formation</a></li>
-          <li><a href="consulting.html">Consulting</a></li>
-          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a href="#automatiser">Automatiser</a></li>
+          <li><a href="#raisonner">Raisonner</a></li>
+          <li><a href="#former">Former</a></li>
         </ul>
       </li>
       <li><a href="../particuliers/index.html">Particuliers</a></li>
@@ -35,35 +31,33 @@
       <li><a href="../contact.html" class="nav-cta">Contact</a></li>
     </ul>
 
-    <div class="nav-burger" id="burger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- ── TICKER ──────────────────────────────────────────────────── -->
-  <div class="ticker">
-    <span class="ticker-inner">
-      Formation · Consulting · Ateliers · Automatiser · Raisonner · Former · Bordeaux · IA & Éthique · Slow Tech · Clarté · Décision · Accompagnement · Formation · Consulting · Ateliers · Automatiser · Raisonner · Former · Bordeaux · IA & Éthique · Slow Tech · Clarté · Décision · Accompagnement ·&nbsp;
-    </span>
-  </div>
-
-  <!-- Menu mobile déroulant -->
+  <!-- Menu mobile -->
   <div class="nav-mobile" id="nav-mobile">
     <a href="index.html">Entreprises</a>
-    <a href="formation.html">— Formation</a>
-    <a href="consulting.html">— Consulting</a>
-    <a href="ateliers.html">— Ateliers</a>
+    <a href="#automatiser">— Automatiser</a>
+    <a href="#raisonner">— Raisonner</a>
+    <a href="#former">— Former</a>
     <a href="../particuliers/index.html">Particuliers</a>
     <a href="../blog/index.html">Blog</a>
     <a href="../contact.html">Contact</a>
   </div>
 
+  <!-- ── TICKER ──────────────────────────────────────────────────── -->
+  <div class="ticker" style="margin-top: 72px;">
+    <span class="ticker-inner">
+      Formation · Consulting · Ateliers · Automatiser · Raisonner · Former · Bordeaux · IA &amp; Éthique · Slow Tech · Clarté · Décision · Accompagnement · Formation · Consulting · Ateliers · Automatiser · Raisonner · Former · Bordeaux · IA &amp; Éthique · Slow Tech · Clarté · Décision · Accompagnement ·&nbsp;
+    </span>
+  </div>
+
   <!-- ── HERO ────────────────────────────────────────────────────── -->
   <section class="ent-hero reveal">
     <p class="label">Entreprises</p>
-    <h1>Philosophie &amp; <em>Vision.</em></h1>
+    <h1>Philosophie &amp;<br><em>Vision.</em></h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
@@ -79,7 +73,7 @@
       <p class="label">Trois propositions</p>
     </div>
 
-    <!-- Sous-nav ancre -->
+    <!-- Sub-nav ancres -->
     <nav class="sub-nav" id="sub-nav">
       <a href="#automatiser" class="active">Automatiser</a>
       <a href="#raisonner">Raisonner</a>
@@ -93,12 +87,8 @@
         <h2>Auto-<br>matiser</h2>
       </div>
       <div class="prop-body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
       </div>
       <div class="prop-cta">
         <a href="../contact.html" class="btn-primary">Demander un devis →</a>
@@ -112,12 +102,8 @@
         <h2>Rai-<br>sonner</h2>
       </div>
       <div class="prop-body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
       </div>
       <div class="prop-cta">
         <a href="../contact.html" class="btn-primary">Construire un atelier →</a>
@@ -131,12 +117,8 @@
         <h2>Former</h2>
       </div>
       <div class="prop-body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
       </div>
       <div class="prop-cta">
         <a href="../contact.html" class="btn-primary">Former vos équipes →</a>
@@ -154,9 +136,7 @@
     <p>© 2025 Faï</p>
   </footer>
 
-  <!-- ── JAVASCRIPT ──────────────────────────────────────────────── -->
   <script>
-    // Burger menu mobile
     function toggleMenu() {
       document.getElementById('nav-mobile').classList.toggle('open');
     }
@@ -176,27 +156,23 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
-
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(function(el) {
       revealObserver.observe(el);
     });
 
-    // Sub-nav : lien actif selon la section visible
+    // Sub-nav actif au scroll
     const propositions = document.querySelectorAll('.proposition');
     const subNavLinks = document.querySelectorAll('.sub-nav a');
-
     const subNavObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          const id = entry.target.id;
           subNavLinks.forEach(function(link) {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
           });
         }
       });
     }, { threshold: 0.4 });
-
     propositions.forEach(function(p) { subNavObserver.observe(p); });
   </script>
 
