@@ -31,9 +31,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 4rem 3rem;
+      padding: 0 3rem;
       text-align: center;
+    }
+
+    /* Hero zone : remplit l'écran sous le ticker */
+    .entry-hero-zone {
+      min-height: calc(100vh - 120px); /* nav 72px + ticker ~48px */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      width: 100%;
     }
 
     /* Label "Laboratoire de clarté digitale" */
@@ -83,6 +93,7 @@
       color: var(--titre);
       font-weight: 500;
       margin-bottom: 1.8rem;
+      padding-top: 1rem;
     }
 
     /* Les deux boutons côte à côte */
@@ -92,6 +103,7 @@
       align-items: stretch;
       justify-content: center;
       flex-wrap: wrap;
+      padding-bottom: 5rem;
     }
 
     /* Bouton de choix — plus grand que les boutons nav */
@@ -261,6 +273,12 @@
     </div>
   </nav>
 
+  <!-- Ticker — dans le flux, margin-top pour passer sous la nav fixe -->
+  <div class="ticker" style="margin-top: 72px;">
+    <span class="ticker-inner">
+      Ateliers · Retraites · Slow tech · Yoga · Tech & Mental · Bordeaux · Digital Detox · Respiration · Clarté · Formation · Consulting · Ateliers · Retraites · Slow tech · Yoga · Tech & Mental · Bordeaux · Digital Detox · Respiration · Clarté · Formation · Consulting ·&nbsp;
+    </span>
+  </div>
 
   <!-- Menu mobile déroulant -->
   <div class="nav-mobile" id="nav-mobile">
@@ -274,32 +292,21 @@
   <!-- ── CONTENU PRINCIPAL ─────────────────────────────────────────
        Zone centrale : présentation + double choix.
        ──────────────────────────────────────────────────────────── -->
-  <main class="entry-main">
+  <main class=”entry-main”>
 
-    <!-- Label -->
-    <p class="entry-label">Laboratoire de clarté</p>
+    <!-- Hero : label + titre + sous-titre — remplit l'écran sous le ticker -->
+    <div class=”entry-hero-zone”>
+      <p class=”entry-label”>Laboratoire de clarté digitale</p>
+      <h1 class=”entry-title”>
+        Technologie<br>et <em>conscience.</em>
+      </h1>
+      <p class=”entry-sub”>
+        Dans un monde qui nous incite toujours à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.
+      </p>
+    </div>
 
-    <!-- Titre -->
-    <h1 class="entry-title">
-      Technologie<br>et <em>conscience.</em>
-    </h1>
-
-    <!-- Sous-titre -->
-    <p class="entry-sub">
-      Dans un monde qui nous incite  toujours  à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.
-    </p>
-
-    <!-- ── TICKER ────────────────────────────────────────────────────
-       Bande animée juste sous la nav — commune aux deux univers.
-       ──────────────────────────────────────────────────────────── -->
-  <div class="ticker">
-    <span class="ticker-inner">
-      Ateliers · Retraites · Slow tech · Yoga · Tech & Mental · Bordeaux · Digital Detox · Respiration · Clarté · Formation · Consulting · Ateliers · Retraites · Slow tech · Yoga · Tech & Mental · Bordeaux · Digital Detox · Respiration · Clarté · Formation · Consulting ·&nbsp;
-    </span>
-  </div>
-
-    <!-- Question -->
-    <p class="entry-question">Vous êtes…</p>
+    <!-- Question : apparaît en bas de l'écran, invite à scroller -->
+    <p class=”entry-question”>Vous êtes…</p>
 
     <!-- Les deux choix -->
     <div class="entry-choices">
