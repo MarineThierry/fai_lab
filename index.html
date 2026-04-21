@@ -169,29 +169,6 @@
       padding: 0 0.5rem;
     }
 
-    /* Ticker — bande animée rouge */
-    .ticker {
-      background: var(--rouge);
-      padding: 0.75rem 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .ticker-inner {
-      display: inline-block;
-      animation: ticker 22s linear infinite;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--blanc);
-      font-weight: 400;
-    }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
     /* ── RESPONSIVE ─────────────────────────────────────────────── */
     @media (max-width: 600px) {
       .entry-choices {
