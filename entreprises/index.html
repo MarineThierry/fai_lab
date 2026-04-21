@@ -70,7 +70,7 @@
   <section class="propositions-section">
 
     <div class="propositions-header">
-      <p class="label">Trois propositions</p>
+      <h2 class="propositions-title">Trois propositions</h2>
     </div>
 
     <!-- Sub-nav ancres -->
@@ -146,6 +146,18 @@
       if (!burger.contains(e.target) && !menu.contains(e.target)) {
         menu.classList.remove('open');
       }
+    });
+
+    // Dropdown — délai à la sortie pour pouvoir cliquer
+    document.querySelectorAll('.nav-dropdown').forEach(function(item) {
+      var closeTimer;
+      item.addEventListener('mouseenter', function() {
+        clearTimeout(closeTimer);
+        item.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function() {
+        closeTimer = setTimeout(function() { item.classList.remove('open'); }, 200);
+      });
     });
 
     // Reveal au scroll

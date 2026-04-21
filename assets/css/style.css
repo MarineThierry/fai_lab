@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth; /* Scroll fluide pour les ancres (#section) */
+  scroll-snap-type: y proximity;
 }
 
 
@@ -376,7 +377,20 @@ footer p {
   gap: 0;
 }
 
-.nav-dropdown:hover .dropdown { display: flex; }
+/* Pont invisible pour ne pas perdre le hover dans le gap */
+.nav-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -0.5rem;
+  right: -0.5rem;
+  height: 1.2rem;
+  background: transparent;
+  z-index: 195;
+}
+
+.nav-dropdown:hover .dropdown,
+.nav-dropdown.open .dropdown { display: flex; }
 
 .dropdown li { list-style: none; }
 
@@ -524,9 +538,18 @@ footer p {
 }
 
 .propositions-header {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 3rem 3rem 0;
+  text-align: center;
+}
+
+.propositions-title {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: var(--titre);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 /* Chaque proposition */
@@ -540,6 +563,8 @@ footer p {
   grid-template-rows: auto auto;
   gap: 1.5rem 4rem;
   align-items: start;
+  scroll-snap-align: start;
+  scroll-margin-top: 108px; /* nav 72px + sub-nav ~36px */
 }
 
 .prop-header {
