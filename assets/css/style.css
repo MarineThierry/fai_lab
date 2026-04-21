@@ -357,6 +357,7 @@ footer p {
 
 /* Ticker — bande animée rouge */
 .ticker {
+  margin-top: 4.5rem; /* compense la nav en position:fixed */
   background: var(--rouge);
   padding: 0.75rem 0;
   overflow: hidden;
