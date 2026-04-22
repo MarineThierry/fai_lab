@@ -25,15 +25,15 @@
       flex-direction: column;
     }
 
-   /* Zone centrale — tout ce qui est entre la nav et le footer */
+    /* Zone centrale — tout ce qui est entre la nav et le footer */
     .entry-main {
       flex: 1;
       display: flex;
       flex-direction: column;
-      /*align-items: center;
-      justify-content: center;*/
+      align-items: center;
+      justify-content: center;
       padding: 4rem 3rem;
-      /*text-align: center;*/
+      text-align: center;
     }
 
     /* Label "Laboratoire de clarté" */
@@ -280,39 +280,35 @@
   <!-- ── CONTENU PRINCIPAL ─────────────────────────────────────────
        Zone centrale : présentation + double choix.
        ──────────────────────────────────────────────────────────── -->
-  <!--<main class=”entry-main”>-->
-  <div class="ent-hero reveal">
-    <p>Laboratoire de clarté digitale</p>
-    <h1>Technologie<br>et <em>conscience.</em></h1>
-    <p>Dans un monde qui nous incite toujours à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.</p>
+  <main class=”entry-main”>
 
-    <!-- Question : apparaît en bas de l'écran, invite à scroller -->
-    <p>Vous êtes…</p>
-  </div>
-  <!-- Les deux choix -->
-  <div class="entry-choices">
+    <p class=”entry-label”>Laboratoire de clarté digitale</p>
+    <h1 class=”entry-title”>Technologie<br>et <em>conscience.</em></h1>
+    <p class=”entry-sub”>Dans un monde qui nous incite toujours à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.</p>
+    <p class=”entry-question”>Vous êtes…</p>
 
-    <!-- Bouton Entreprises -->
-    <a href="entreprises/index.html" class="btn-choice">
-      <span class="choice-label">Pour les organisations</span>
-      <span class="choice-title">Une<br>entreprise</span>
-      <span class="choice-desc">Former, automatiser, raisonner — accompagnement sur mesure.</span>
-      <span class="choice-arrow">→</span>
-    </a>
+    <!-- Les deux choix -->
+    <div class=”entry-choices”>
 
-    <span class="entry-or">ou</span>
+      <a href=”entreprises/index.html” class=”btn-choice”>
+        <span class=”choice-label”>Pour les organisations</span>
+        <span class=”choice-title”>Une<br>entreprise</span>
+        <span class=”choice-desc”>Former, automatiser, raisonner — accompagnement sur mesure.</span>
+        <span class=”choice-arrow”>→</span>
+      </a>
 
-    <!-- Bouton Particuliers -->
-    <a href="particuliers/index.html" class="btn-choice">
-      <span class="choice-label">Pour vous</span>
-      <span class="choice-title">Un<br>particulier</span>
-      <span class="choice-desc">Ateliers, retraites — reprendre le contrôle.</span>
-      <span class="choice-arrow">→</span>
-    </a>
+      <span class=”entry-or”>ou</span>
 
-  </div>
+      <a href=”particuliers/index.html” class=”btn-choice”>
+        <span class=”choice-label”>Pour vous</span>
+        <span class=”choice-title”>Un<br>particulier</span>
+        <span class=”choice-desc”>Ateliers, retraites — reprendre le contrôle.</span>
+        <span class=”choice-arrow”>→</span>
+      </a>
 
-  <!--</main>-->
+    </div>
+
+  </main>
 
   <!-- ── FOOTER ────────────────────────────────────────────────────
        Footer minimal — commun aux deux univers.
