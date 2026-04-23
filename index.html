@@ -25,32 +25,27 @@
       flex-direction: column;
     }
 
-    /* Zone centrale — tout ce qui est entre la nav et le footer */
+   /* Zone centrale — tout ce qui est entre la nav et le footer */
     .entry-main {
       flex: 1;
       display: flex;
       flex-direction: column;
+      /*align-items: center;
+      justify-content: center;*/
+      padding: 4rem 3rem;
+      /*text-align: center;*/
     }
 
-    /* Hero zone : remplit l'écran sous le ticker */
-    .entry-hero-zone {
-      width: 100%;
-      min-height: calc(100vh - 120px); /* nav 72px + ticker ~48px */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2rem 3rem;
-      text-align: center;
-    }
+    /* Centrage du bloc hero sur l'accueil */
+    .ent-hero { text-align: center; }
 
-    /* Label "Laboratoire de clarté digitale" */
+    /* Label "Laboratoire de clarté" */
     .entry-label {
       font-size: 0.65rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gris);
       margin-bottom: 2.5rem;
-      text-align: center;
     }
 
     /* Titre principal */
@@ -62,7 +57,6 @@
       letter-spacing: -0.02em;
       color: var(--titre);
       margin-bottom: 1.5rem;
-      text-align: center;
     }
 
     .entry-title em {
@@ -82,21 +76,15 @@
       max-width: 480px;
       margin: 0 auto 3.5rem;
       font-weight: 300;
-      text-align: center;
     }
 
     /* Question "Vous êtes..." */
     .entry-question {
-      width: 100%;
-      font-size: 1.15rem;
-      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--titre);
-      font-weight: 500;
-      margin-bottom: 1.8rem;
-      margin-top: 2rem;
-      text-align: center;
-      padding: 0 3rem;
+      color: var(--gris);
+      margin-bottom: 1.5rem;
     }
 
     /* Les deux boutons côte à côte */
@@ -295,46 +283,39 @@
   <!-- ── CONTENU PRINCIPAL ─────────────────────────────────────────
        Zone centrale : présentation + double choix.
        ──────────────────────────────────────────────────────────── -->
-  <main class=”entry-main”>
-
-    <!-- Hero : label + titre + sous-titre — remplit l'écran sous le ticker -->
-    <div class=”entry-hero-zone”>
-      <p class=”entry-label”>Laboratoire de clarté digitale</p>
-      <h1 class=”entry-title”>
-        Technologie<br>et <em>conscience.</em>
-      </h1>
-      <p class=”entry-sub”>
-        Dans un monde qui nous incite toujours à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.
-      </p>
-    </div>
+  <!--<main class=”entry-main”>-->
+  <div class="ent-hero reveal">
+    <p>Laboratoire de clarté digitale</p>
+    <h1>Technologie<br>et <em>conscience.</em></h1>
+    <p>Dans un monde qui nous incite toujours à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.</p>
 
     <!-- Question : apparaît en bas de l'écran, invite à scroller -->
-    <p class=”entry-question”>Vous êtes…</p>
+    <p>Vous êtes…</p>
+  </div>
+  <!-- Les deux choix -->
+  <div class="entry-choices">
 
-    <!-- Les deux choix -->
-    <div class="entry-choices">
+    <!-- Bouton Entreprises -->
+    <a href="entreprises/index.html" class="btn-choice">
+      <span class="choice-label">Pour les organisations</span>
+      <span class="choice-title">Une<br>entreprise</span>
+      <span class="choice-desc">Former, automatiser, raisonner — accompagnement sur mesure.</span>
+      <span class="choice-arrow">→</span>
+    </a>
 
-      <!-- Bouton Entreprises -->
-      <a href="entreprises/index.html" class="btn-choice">
-        <span class="choice-label">Pour les organisations</span>
-        <span class="choice-title">Une<br>entreprise</span>
-        <span class="choice-desc">Former, automatiser, raisonner — accompagnement sur mesure.</span>
-        <span class="choice-arrow">→</span>
-      </a>
+    <span class="entry-or">ou</span>
 
-      <span class="entry-or">ou</span>
+    <!-- Bouton Particuliers -->
+    <a href="particuliers/index.html" class="btn-choice">
+      <span class="choice-label">Pour vous</span>
+      <span class="choice-title">Un<br>particulier</span>
+      <span class="choice-desc">Ateliers, retraites — reprendre le contrôle.</span>
+      <span class="choice-arrow">→</span>
+    </a>
 
-      <!-- Bouton Particuliers -->
-      <a href="particuliers/index.html" class="btn-choice">
-        <span class="choice-label">Pour vous</span>
-        <span class="choice-title">Un<br>particulier</span>
-        <span class="choice-desc">Ateliers, retraites — reprendre le contrôle.</span>
-        <span class="choice-arrow">→</span>
-      </a>
+  </div>
 
-    </div>
-
-  </main>
+  <!--</main>-->
 
   <!-- ── FOOTER ────────────────────────────────────────────────────
        Footer minimal — commun aux deux univers.
@@ -363,6 +344,19 @@
       if (!burger.contains(e.target) && !menu.contains(e.target)) {
         menu.classList.remove('open');
       }
+    });
+
+    // Reveal au scroll
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
     });
   </script>
 

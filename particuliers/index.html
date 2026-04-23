@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faï — Particuliers</title>
+  <meta name="description" content="Au travers d'ateliers ou de retraites, Faï accompagne les particuliers dans leur réflexion et usage des outils digitaux.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- ── NAV ─────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="../index.html" class="logo">
+      <span class="f">F</span><span class="ai">aï</span>
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="index.html" class="active">Particuliers</a>
+        <ul class="dropdown">
+          <li><a href="#Ateliers">Ateliers</a></li>
+          <li><a href="#Retraites">Retraites</a></li>
+        </ul>
+      </li>
+      <li><a href="../entreprises/index.html"><Entreprises></a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+
+    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html">Particuliers</a>
+    <a href="#Ateliers">— Ateliers</a>
+    <a href="#Retraites">— Retraites</a>
+    <a href="../particuliers/index.html">Entreprises</a>
+    <a href="../blog/index.html">Blog</a>
+    <a href="../contact.html">Contact</a>
+  </div>
+
+  <!-- ── TICKER ──────────────────────────────────────────────────── -->
+  <div class="ticker" style="margin-top: 72px;">
+    <span class="ticker-inner">
+      Formation · Consulting · Ateliers · Automatiser · Retraites · Former · Bordeaux · IA &amp; Éthique · Slow Tech · Clarté · Décision · Accompagnement · Formation · Consulting · Ateliers · Automatiser · Retraites · Former · Bordeaux · IA &amp; Éthique · Slow Tech · Clarté · Décision · Accompagnement ·&nbsp;
+    </span>
+  </div>
+
+  <!-- ── HERO ────────────────────────────────────────────────────── -->
+  <section class="ent-hero reveal">
+    <p class="label">Particuliers</p>
+    <h1>Philosophie &amp;<br><em>Vision.</em></h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <p>
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </section>
+
+  <!-- ── TROIS PROPOSITIONS ──────────────────────────────────────── -->
+  <section class="propositions-section">
+
+    <div class="propositions-header">
+      <h2 class="propositions-title">Deux formats</h2>
+    </div>
+
+    <!-- Sub-nav ancres -->
+    <nav class="sub-nav" id="sub-nav">
+      <a href="#automatiser" class="active">Ateliers</a>
+      <a href="#Retraites">Retraites</a>
+    </nav>
+
+    <!-- 01 · Ateliers -->
+    <div id="Ateliers" class="proposition reveal">
+      <div class="prop-header">
+        <span class="prop-num">01</span>
+        <h2>Ateliers</h2>
+      </div>
+      <div class="prop-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+      </div>
+      <div class="prop-cta">
+        <a href="../contact.html" class="btn-primary">Les prochains ateliers →</a>
+      </div>
+    </div>
+
+    <!-- 02 · Retraites -->
+    <div id="Retraites" class="proposition reveal">
+      <div class="prop-header">
+        <span class="prop-num">02</span>
+        <h2>Retraites</h2>
+      </div>
+      <div class="prop-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+      </div>
+      <div class="prop-cta">
+        <a href="../contact.html" class="btn-primary">Les prochaines retraites →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── FOOTER ──────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">
+      <span class="f">F</span><span class="ai">aï</span>
+    </div>
+    <p>Bordeaux — Laboratoire de clarté digitale</p>
+    <p>© 2025 Faï</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-mobile').classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+      const burger = document.getElementById('burger');
+      const menu = document.getElementById('nav-mobile');
+      if (!burger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // Dropdown — délai à la sortie pour pouvoir cliquer
+    document.querySelectorAll('.nav-dropdown').forEach(function(item) {
+      var closeTimer;
+      item.addEventListener('mouseenter', function() {
+        clearTimeout(closeTimer);
+        item.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function() {
+        closeTimer = setTimeout(function() { item.classList.remove('open'); }, 200);
+      });
+    });
+
+    // Reveal au scroll
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // Sub-nav actif au scroll
+    const propositions = document.querySelectorAll('.proposition');
+    const subNavLinks = document.querySelectorAll('.sub-nav a');
+    const subNavObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          subNavLinks.forEach(function(link) {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+    propositions.forEach(function(p) { subNavObserver.observe(p); });
+  </script>
+
+</body>
+</html>
