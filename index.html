@@ -172,67 +172,97 @@
       padding: 0 0.5rem;
     }
 
-    /* ── RESPONSIVE ─────────────────────────────────────────────── */
-    @media (max-width: 600px) {
-      .entry-choices {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .entry-or { display: none; }
-
-      .btn-choice { min-width: unset; }
-
-      /* Sur mobile : menu burger à la place des liens nav */
-      .nav-links { display: none; }
-      .nav-burger { display: flex; }
+    /* ── CALLOUT PARTICULIERS ───────────────────────────────────── */
+    .callout-particulier {
+      margin: 3rem auto 4rem;
+      max-width: 680px;
+      padding: 2.5rem 3rem;
+      border: 1px solid rgba(26,26,26,0.1);
+      background: var(--sable);
+      text-align: center;
     }
 
-    /* Burger menu (masqué sur desktop) */
-    .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    .nav-burger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--titre);
-    }
-
-    /* Menu mobile déroulant */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      top: 72px;
-      left: 0; right: 0;
-      background: var(--blanc);
-      border-bottom: 1px solid rgba(26,26,26,0.08);
-      z-index: 99;
-      padding: 1.5rem 2rem;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .nav-mobile.open { display: flex; }
-
-    .nav-mobile a {
-      text-decoration: none;
-      color: var(--titre);
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
+    .callout-particulier .callout-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-weight: 400;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(26,26,26,0.06);
+      color: var(--rouge);
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile a:hover { color: var(--rouge); }
+    .callout-particulier p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gris);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    /* ── FAQ ────────────────────────────────────────────────────── */
+    .faq-section {
+      max-width: 680px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+
+    .faq-section h2 {
+      font-family: var(--font-titre);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--titre);
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(26,26,26,0.1);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--titre);
+      user-select: none;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--rouge);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item .faq-answer {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: var(--gris);
+      font-weight: 300;
+      padding-bottom: 1.2rem;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .callout-particulier {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem 3rem;
+      }
+    }
   </style>
 </head>
 
@@ -250,18 +280,18 @@
 
     <!-- Liens desktop -->
     <ul class="nav-links">
-      <li><a href="entreprises/index.html">Entreprises</a></li>
+      <li><a href="#former">Entreprises</a></li>
       <li><a href="particuliers/index.html">Particuliers</a></li>
       <li><a href="blog/index.html">Blog</a></li>
       <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
 
     <!-- Burger mobile -->
-    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <button class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
   </nav>
 
   <!-- Ticker — dans le flux, margin-top pour passer sous la nav fixe -->
@@ -273,7 +303,7 @@
 
   <!-- Menu mobile déroulant -->
   <div class="nav-mobile" id="nav-mobile">
-    <a href="entreprises/index.html">Entreprises</a>
+    <a href="#former">Entreprises</a>
     <a href="particuliers/index.html">Particuliers</a>
     <a href="blog/index.html">Blog</a>
     <a href="contact.html">Contact</a>
@@ -352,35 +382,46 @@
 
   </section>
 
-  <!-- Question : apparaît en bas de l'écran, invite à scroller -->
-  <div class="ent-hero reveal" style="text-align:center; padding: 2rem 3rem 0;">
-    <p>Vous êtes…</p>
+  <!-- ── CALLOUT PARTICULIERS ────────────────────────────────────── -->
+  <div class="callout-particulier reveal">
+    <p class="callout-label">Particuliers</p>
+    <p>Vous êtes un particulier et vous cherchez des ateliers pour mieux appréhender les enjeux digitaux pour votre vie professionnelle et personnelle ?</p>
+    <a href="particuliers/index.html" class="btn-primary">En savoir + →</a>
   </div>
 
-  <!-- Les deux choix -->
-  <div class="entry-choices">
+  <!-- ── FAQ ──────────────────────────────────────────────────────── -->
+  <section class="faq-section reveal">
+    <h2>Questions fréquentes</h2>
 
-    <!-- Bouton Entreprises -->
-    <a href="entreprises/index.html" class="btn-choice">
-      <span class="choice-label">Pour les organisations</span>
-      <span class="choice-title">Une<br>entreprise</span>
-      <span class="choice-desc">Former, automatiser, raisonner — accompagnement sur mesure.</span>
-      <span class="choice-arrow">→</span>
-    </a>
+    <details class="faq-item">
+      <summary>À qui s'adressent les formations Faï ?</summary>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+      </div>
+    </details>
 
-    <span class="entry-or">ou</span>
+    <details class="faq-item">
+      <summary>Comment se déroule un accompagnement sur mesure ?</summary>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      </div>
+    </details>
 
-    <!-- Bouton Particuliers -->
-    <a href="particuliers/index.html" class="btn-choice">
-      <span class="choice-label">Pour vous</span>
-      <span class="choice-title">Un<br>particulier</span>
-      <span class="choice-desc">Ateliers, retraites — reprendre le contrôle.</span>
-      <span class="choice-arrow">→</span>
-    </a>
+    <details class="faq-item">
+      <summary>Faï propose-t-il des ateliers en dehors de Bordeaux ?</summary>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      </div>
+    </details>
 
-  </div>
+    <details class="faq-item">
+      <summary>Quelle est la différence entre les offres Entreprises et Particuliers ?</summary>
+      <div class="faq-answer">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero tempore cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
+      </div>
+    </details>
 
-  <!--</main>-->
+  </section>
 
   <!-- ── FOOTER ────────────────────────────────────────────────────
        Footer minimal — commun aux deux univers.
@@ -424,7 +465,7 @@
       revealObserver.observe(el);
     });
 
-    // Sub-nav actif au scroll
+    // Sub-nav actif au scroll — la section active est celle qui entre dans la zone de lecture (25-75% du viewport)
     const propositions = document.querySelectorAll('.proposition');
     const subNavLinks = document.querySelectorAll('.sub-nav a');
     if (propositions.length && subNavLinks.length) {
@@ -436,7 +477,10 @@
             });
           }
         });
-      }, { threshold: 0.4 });
+      }, {
+        rootMargin: '-25% 0px -65% 0px',
+        threshold: 0
+      });
       propositions.forEach(function(p) { subNavObserver.observe(p); });
     }
   </script>
