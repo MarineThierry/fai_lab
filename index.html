@@ -289,9 +289,74 @@
     <h1>Technologie<br>et <em>conscience.</em></h1>
     <p>Dans un monde qui nous incite toujours à “plus”, Faï propose de revoir et redécouvrir nos usages numériques, pour faire de la place à ce qui compte, et utiliser la technologie pour retrouver sens, clarté et concentration.</p>
 
-    <!-- Question : apparaît en bas de l'écran, invite à scroller -->
+  </div>
+
+  <!-- ── TROIS PROPOSITIONS ──────────────────────────────────────── -->
+  <section class="propositions-section">
+
+    <div class="propositions-header">
+      <h2 class="propositions-title">Trois propositions</h2>
+    </div>
+
+    <!-- Sub-nav ancres -->
+    <nav class="sub-nav" id="sub-nav">
+      <a href="#former">Former</a>
+      <a href="#raisonner">Raisonner</a>
+      <a href="#automatiser">Automatiser</a>
+    </nav>
+
+    <!-- 01 · Former -->
+    <div id="former" class="proposition reveal">
+      <div class="prop-header">
+        <span class="prop-num">01</span>
+        <h2>Former</h2>
+      </div>
+      <div class="prop-body">
+        <p>Monter en compétence, selon son rôle.</p>
+        <p>De la découverte des environnements data pour les managers à la maîtrise technique pour les analystes — chaque formation est construite sur mesure, selon les usages réels de vos équipes.</p>
+      </div>
+      <div class="prop-cta">
+        <a href="contact.html" class="btn-primary">Former vos équipes →</a>
+      </div>
+    </div>
+
+    <!-- 02 · Raisonner -->
+    <div id="raisonner" class="proposition reveal">
+      <div class="prop-header">
+        <span class="prop-num">02</span>
+        <h2>Rai-<br>sonner</h2>
+      </div>
+      <div class="prop-body">
+        <p>Avant d'adopter un outil, comprendre ce qu'il résout.</p>
+        <p>Des ateliers pour développer l'esprit critique face aux technologies : comprendre les enjeux, questionner les usages, décider avec méthode. Parce qu'une équipe qui comprend ses outils les utilise mieux.</p>
+      </div>
+      <div class="prop-cta">
+        <a href="contact.html" class="btn-primary">Construire un atelier →</a>
+      </div>
+    </div>
+
+    <!-- 03 · Automatiser -->
+    <div id="automatiser" class="proposition reveal">
+      <div class="prop-header">
+        <span class="prop-num">03</span>
+        <h2>Auto-<br>matiser</h2>
+      </div>
+      <div class="prop-body">
+        <p>Structurer ce qui peut l'être. Pas plus.</p>
+        <p>Mise en place d'outils de reporting ou planification fiables, automatisation des tâches répétitives — des solutions pensées pour durer et évoluer avec vos équipes, prise en main dès la finalisation du produit.</p>
+      </div>
+      <div class="prop-cta">
+        <a href="contact.html" class="btn-primary">Demander un devis →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Question : apparaît en bas de l'écran, invite à scroller -->
+  <div class="ent-hero reveal" style="text-align:center; padding: 2rem 3rem 0;">
     <p>Vous êtes…</p>
   </div>
+
   <!-- Les deux choix -->
   <div class="entry-choices">
 
@@ -358,6 +423,22 @@
     document.querySelectorAll('.reveal').forEach(function(el) {
       revealObserver.observe(el);
     });
+
+    // Sub-nav actif au scroll
+    const propositions = document.querySelectorAll('.proposition');
+    const subNavLinks = document.querySelectorAll('.sub-nav a');
+    if (propositions.length && subNavLinks.length) {
+      const subNavObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            subNavLinks.forEach(function(link) {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+          }
+        });
+      }, { threshold: 0.4 });
+      propositions.forEach(function(p) { subNavObserver.observe(p); });
+    }
   </script>
 
 </body>
